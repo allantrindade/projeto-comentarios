@@ -24,7 +24,7 @@
                 <a name="btnSair" class="ml-2" href="../Acoes/logout.php"><img src="../Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
             </div>
         </nav>
-        <form action="./index.php" method="POST">
+        <form action="./home.php" method="POST">
             <input type="hidden" id="acao" name="acao" value="<?=$acao?>">
             <div class="row">
             <?php 

@@ -11,7 +11,7 @@
         }
         elseif ($mensagemErro === '') {
             if($u->login($usuario, $senha)) {
-                header("Location: index.php");
+                header("Location: home.php");
             } else {
                 echo "<script>alert('Usuário ou Senha incorretos!')</script>";
             }

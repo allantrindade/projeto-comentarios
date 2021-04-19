@@ -19,7 +19,7 @@
                 
                 <div class="mx-auto col-5 mb-1">
                     <button class="btn btn-lg btn-success btn-block"  name="btnLogar" type="submit">Acessar</button>
-                    <a href="../Pages/index.php" class="btn btn-lg btn-outline-success btn-block">Comentários</a>
+                    <a href="../Pages/home.php" class="btn btn-lg btn-outline-success btn-block">Comentários</a>
                 </div>
                 <small><a href="cadastro.php">Cadastre-Se</a></small>
             </form>    

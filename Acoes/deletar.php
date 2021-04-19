@@ -16,10 +16,10 @@ if (($idHidden == '')) {
     echo $mensagemErro;
 }
 elseif ($usuarioLogado != $userHidden && $userHidden != 'anônimo') {
-    $mensagemErro = "<script>alert('Você pode excluir somente o seu comentário');window.location.href='../Pages/index.php'</script>";
+    $mensagemErro = "<script>alert('Você pode excluir somente o seu comentário');window.location.href='../Pages/home.php'</script>";
     echo $mensagemErro;
 }
 elseif ($mensagemErro === '') {
     $crud->deleteDB('comentarios', '?', array($idHidden));
-    echo("<script>alert('Comentário Excluido');window.location.href='../Pages/index.php'</script>");
+    echo("<script>alert('Comentário Excluido');window.location.href='../Pages/home.php'</script>");
 }
