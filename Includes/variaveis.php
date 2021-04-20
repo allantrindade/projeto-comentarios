@@ -1,5 +1,5 @@
 <?php
-
+const DIR = 'http://localhost/Desenvolvimento para Servidores/projeto-comentarios';
 session_start();
 $id = isset($_POST['id']) ? $_POST['id'] : '';
 $idHidden = isset($_SESSION['id']) ? $_SESSION['id'] : "" ;
