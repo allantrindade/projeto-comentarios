@@ -5,7 +5,13 @@ include('Includes/variaveis.php');
 include('Includes/head.php');
 
 $objUrl = new classUrl();
+$url = explode("/", $_GET['url'] ?? 'home');
 
-$objUrl->getURL();
+if ($objUrl->getURL($url) == TRUE) {
+    include "Pages/{$url[0]}.php";
+} else {
+    include "Pages/erro.php";
+}
+
 
 include('Includes/footer.php');

@@ -13,12 +13,12 @@
 <body class="container bg-light">
     <div class="container bg-white">
         <header>
-            <img src="<?=DIR?>/Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
+            <img src="./Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
         </header>
         <nav>
             <div class="col-md-12 mt-3 text-right">               
                 <small>Olá: <b><?=$_SESSION['loggedin']?></b>
-                <a name="btnSair" class="ml-2" href="./Acoes/logout.php"><img src="<?=DIR?>/Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
+                <a name="btnSair" class="ml-2" href="./Acoes/logout.php"><img src="./Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
             </div>
         </nav>
         <form action="Acoes/publicar.php" method="POST">

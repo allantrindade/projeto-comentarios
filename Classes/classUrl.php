@@ -1,15 +1,14 @@
 <?php
     class classUrl {
 
-        public function getURL() {
-            $url = explode("/", $_GET['url'] ?? 'home');
-
+        public function getURL($url=[]) :string {         
             if (isset($url[1])) {
-                include "Pages/erro.php";
+                return false;
             } elseif (file_exists("Pages/{$url[0]}.php")) {
-                include "Pages/{$url[0]}.php";
+                return true;
             } else {
-                include "Pages/erro.php";
+                return false;
             }
+            return $url;
         }
     }
