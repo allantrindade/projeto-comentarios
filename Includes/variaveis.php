@@ -1,6 +1,6 @@
 <?php
-const DIR = 'http://localhost/Desenvolvimento para Servidores/projeto-comentarios';
 session_start();
+const DIR = 'http://localhost/Desenvolvimento para Servidores/projeto-comentarios';
 $id = isset($_POST['id']) ? $_POST['id'] : '';
 $idHidden = isset($_SESSION['id']) ? $_SESSION['id'] : "" ;
 $email = isset($_POST['email']) ? $_POST['email'] : '';

@@ -1,8 +1,8 @@
 <?php
-include_once('./Classes/classConexao.php');
+include_once(dirname(__FILE__).'\classConexao.php');
 
     class classUsuario extends classConexao {
-
+      
         //METODO LOGAR
         public function login($usuario, $senha){
             $h = new classPassword();

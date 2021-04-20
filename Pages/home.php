@@ -1,7 +1,8 @@
 <?php   
-    include('./Includes/head.php');
-    include('./Acoes/publicar.php');
 
+   if (!isset($_SESSION['loggedin'])) {
+    $_SESSION['loggedin'] = "Usuário não Logado";
+}
     if (isset($_GET['id'])){
         $acao = "Editar";
     } else {
@@ -20,7 +21,7 @@
                 <a name="btnSair" class="ml-2" href="./Acoes/logout.php"><img src="<?=DIR?>/Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
             </div>
         </nav>
-        <form action="home" method="POST">
+        <form action="Acoes/publicar.php" method="POST">
             <input type="hidden" id="acao" name="acao" value="<?=$acao?>">
             <div class="row">
             <?php 
@@ -59,4 +60,3 @@
             </div>
     </div>
 </body>
-<?php include('./Includes/footer.php')?>

@@ -1,11 +1,6 @@
-<?php
-    include('./Includes/head.php');
-    include('./Acoes/cadastrar.php');
-?>
-
 <body class='container bg-light'>
     <div class="card text-center p-5 mx-auto" style="width:50vw">
-        <form action="cadastro" method="POST" enctype="multipart/form-data">       
+        <form action="Acoes/cadastrar.php" method="POST" enctype="multipart/form-data">       
                 <h1 class="h3 mt-3 mb-3 font-weight-normal">Cadastro de Usuário</h1>
                 <p>Seja bem-vindo!</p>
                 <div class="form-group col-8 mx-auto">
@@ -34,4 +29,3 @@
         </form>    
     </div>
 </body>
-<?php include('./Includes/footer.php')?>

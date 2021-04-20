@@ -1,11 +1,6 @@
-<?php
-    include('./Includes/head.php');
-    include('./Acoes/logar.php');
-?>
-
 <body class='container bg-light'>
     <div class="card text-center p-5 mx-auto" style="width:50vw">
-        <form action="login" method="POST">       
+        <form action="Acoes/logar.php" method="POST">       
                 <img class="rounded-circle" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
                     <h1 class="h3 mt-3 mb-3 font-weight-normal">Sistema de Comentários</h1>
                     <p>Seja bem-vindo!</p>
@@ -24,4 +19,3 @@
             </form>    
     </div>
 </body>
-<?php include('./Includes/footer.php')?>

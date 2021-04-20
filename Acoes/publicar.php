@@ -1,35 +1,30 @@
 <?php
-
-include('./Includes/variaveis.php');
-include('./Classes/classCrud.php');
-
-if (!isset($_SESSION['loggedin'])) {
-    $_SESSION['loggedin'] = "Usuário não Logado";
-}
+include('../Includes/variaveis.php');
+include('../Classes/classCrud.php');
 
 //Evento botão Publicar Comentários em Publicações
 if (isset($_POST['btnPublicar']) && $acao == 'Publicar') {
     if ($usuarioLogado == '' || $comentario == '') {
-        $mensagemErro = "<script>alert('Preencher o comentário')</script>";
+        $mensagemErro = "<script>alert('Preencher o comentário');window.location.href='../home'</script>";
         echo $mensagemErro;
     } 
     elseif ($mensagemErro === ""){
         $crud = new classCrud();
         $crud->insertDB('comentarios', '?,?,?,?', array(isset($_POST['anonimo']) ? 'anônimo' : $usuarioLogado,
         isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario), 'usuario, email, data_criacao, comentario');
-        echo("<script>alert('Comentário Inserido')</script>");
+        echo "<script>alert('Comentário Inserido');window.location.href='../home'</script>";
     }
 }
 //Evento botão Publicar Comentários em Edições
 if (isset($_POST['btnPublicar']) && $acao == 'Editar') {
     if ($usuarioLogado == '' || $comentario == '') {
-        $mensagemErro = "<script>alert('Preencher o comentário')</script>";
+        $mensagemErro = "<script>alert('Preencher o comentário');window.location.href='../home'</script>";
         echo $mensagemErro;
     } 
     elseif ($mensagemErro === ""){
         $crud = new classCrud();
         $crud->updateDB('comentarios', 'usuario = ?, email = ?, data_edicao = ?, comentario = ?',
         $idHidden, array(isset($_POST['anonimo']) ? 'anônimo' : $usuarioLogado, isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario));     
-        echo("<script>alert('Comentário Editado')</script>");
+        echo "<script>alert('Comentário Editado');window.location.href='../home'</script>";
     }
 }

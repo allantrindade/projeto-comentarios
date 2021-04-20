@@ -1,4 +1,5 @@
  <?php 
+
     function logout() {
         session_start();
         $_SESSION['loggedin'] = 'Usuário não Logado';
