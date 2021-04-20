@@ -10,7 +10,8 @@
 
 
 $url = explode("/", $_GET['url'] ?? 'home'); 
-var_dump($url);
+//var_dump($url);
+
 
 if (file_exists("Pages/{$url[0]}.php")) {
     include "Pages/{$url[0]}.php";

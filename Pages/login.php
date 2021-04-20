@@ -3,8 +3,6 @@
     include('./Acoes/logar.php');
 ?>
 
-
-
 <body class='container bg-light'>
     <div class="card text-center p-5 mx-auto" style="width:50vw">
         <form action="login" method="POST">       

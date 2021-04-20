@@ -3,6 +3,9 @@
 include('./Includes/variaveis.php');
 include('./Classes/classCrud.php');
 
+if (!isset($_SESSION['loggedin'])) {
+    $_SESSION['loggedin'] = "Usuário não Logado";
+}
 
 //Evento botão Publicar Comentários em Publicações
 if (isset($_POST['btnPublicar']) && $acao == 'Publicar') {

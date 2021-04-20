@@ -1,15 +1,14 @@
-<?php 
-    
+<?php   
     include('./Includes/head.php');
-    include('./Acoes/publcar.php');
-    //include('./Acoes/deletar.php');
-    
+    include('./Acoes/publicar.php');
+
     if (isset($_GET['id'])){
         $acao = "Editar";
     } else {
         $acao = "Publicar";
     }
 ?>
+
 <body class="container bg-light">
     <div class="container bg-white">
         <header>
