@@ -1,5 +1,5 @@
 <?php
-include_once('../Classes/classConexao.php');
+include_once('./Classes/classConexao.php');
 
     class classUsuario extends classConexao {
 
@@ -24,13 +24,5 @@ include_once('../Classes/classConexao.php');
             } else {
                 return false;
             } 
-        }
-
-        //METODO LOGOUT
-        public function logout() {
-            session_start();
-            $_SESSION['loggedin'] = 'Usuário não Logado';
-            $_SESSION['email'] = '';
-            return true;
         }
     }

@@ -1,5 +1,5 @@
 <?php
-include('../Classes/classConexao.php');
+include_once('./Classes/classConexao.php');
 
     class classCrud extends classConexao {
 

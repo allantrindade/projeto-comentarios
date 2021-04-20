@@ -23,6 +23,6 @@
         //METODO PARA GRAVAR O ARQUIVO NA PASTA IMAGES
         public function gravarFoto($foto){
             $imagem = ($foto['tmp_name']);
-            move_uploaded_file($imagem, "../Images/Usuarios/{$this->gerarNome($foto)}");
+            move_uploaded_file($imagem, "./Images/Usuarios/{$this->gerarNome($foto)}");
         }
     }

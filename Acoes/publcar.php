@@ -1,8 +1,8 @@
 <?php
 
-include('../Includes/variaveis.php');
-include('../Classes/classCrud.php');
-$crud = new classCrud();
+include('./Includes/variaveis.php');
+include('./Classes/classCrud.php');
+
 
 //Evento botão Publicar Comentários em Publicações
 if (isset($_POST['btnPublicar']) && $acao == 'Publicar') {
@@ -11,6 +11,7 @@ if (isset($_POST['btnPublicar']) && $acao == 'Publicar') {
         echo $mensagemErro;
     } 
     elseif ($mensagemErro === ""){
+        $crud = new classCrud();
         $crud->insertDB('comentarios', '?,?,?,?', array(isset($_POST['anonimo']) ? 'anônimo' : $usuarioLogado,
         isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario), 'usuario, email, data_criacao, comentario');
         echo("<script>alert('Comentário Inserido')</script>");
@@ -23,6 +24,7 @@ if (isset($_POST['btnPublicar']) && $acao == 'Editar') {
         echo $mensagemErro;
     } 
     elseif ($mensagemErro === ""){
+        $crud = new classCrud();
         $crud->updateDB('comentarios', 'usuario = ?, email = ?, data_edicao = ?, comentario = ?',
         $idHidden, array(isset($_POST['anonimo']) ? 'anônimo' : $usuarioLogado, isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario));     
         echo("<script>alert('Comentário Editado')</script>");

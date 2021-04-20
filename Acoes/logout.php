@@ -1,9 +1,9 @@
-<?php
-    include('../Classes/classUsuario.php');
-    $u = new classUsuario();
-
-    if ($u->logout()) {
-        echo "<script>window.location.href='../Pages/login.php'</script>";   
+ <?php 
+    function logout() {
+        session_start();
+        $_SESSION['loggedin'] = 'Usuário não Logado';
+        $_SESSION['email'] = '';
+        header("Location: ../login");
     }
-?>
-    
+
+    logout();

@@ -1,9 +1,9 @@
 <?php
-include('../Includes/variaveis.php');
-include('../Classes/classCrud.php');
-include('../Classes/classUsuario.php');
-include('../Classes/classPassword.php');
-include('../Classes/classImagem.php');
+include('./Includes/variaveis.php');
+include('./Classes/classCrud.php');
+include('./Classes/classUsuario.php');
+include('./Classes/classPassword.php');
+include('./Classes/classImagem.php');
 
 $crud = new classCrud();
 $hash = new classPassword();
@@ -40,6 +40,6 @@ if (isset($_POST['btnCadastrar'])) {
     elseif ($mensagemErro === '') {
         $imagem->gravarFoto($foto);
         $crud->insertDB('usuarios', '?,?,?,?', array($email, $usuario1, $hash->passwordHash($senha2), $imagem->gerarNome($foto)), 'email, usuario, senha, imagem');
-        echo("<script>alert('Usuário Cadastrado');window.location.href='login.php'</script>");
+        echo("<script>alert('Usuário Cadastrado');window.location.href='login'</script>");
     }
 }

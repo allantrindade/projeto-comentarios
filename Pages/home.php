@@ -1,12 +1,9 @@
 <?php 
     
-    include('../Includes/head.php');
-    include('../Acoes/publcar.php');
-    if(empty($_SESSION['loggedin'])){
-        $_SESSION['loggedin'] = "Usuário não Logado";
-        header("Location: login.php");      
-    }
-
+    include('./Includes/head.php');
+    include('./Acoes/publcar.php');
+    //include('./Acoes/deletar.php');
+    
     if (isset($_GET['id'])){
         $acao = "Editar";
     } else {
@@ -16,15 +13,15 @@
 <body class="container bg-light">
     <div class="container bg-white">
         <header>
-            <img src="../Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
+            <img src="./Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
         </header>
         <nav>
             <div class="col-md-12 mt-3 text-right">               
                 <small>Olá: <b><?=$_SESSION['loggedin']?></b>
-                <a name="btnSair" class="ml-2" href="../Acoes/logout.php"><img src="../Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
+                <a name="btnSair" class="ml-2" href="./Acoes/logout.php"><img src="./Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
             </div>
         </nav>
-        <form action="./home.php" method="POST">
+        <form action="home" method="POST">
             <input type="hidden" id="acao" name="acao" value="<?=$acao?>">
             <div class="row">
             <?php 
@@ -32,7 +29,7 @@
                     echo '<div class="d-none">';
                 }
             ?>
-            <h2 class="text-info text-left p-3">Deixe seu Comentário</h2>
+            <h2 class="text-info text-left p-3"><?=$acao?> seu Comentário</h2>
                 <div class="col-md-9">
                     <div class="form-group">
                         <textarea class="form-control form-control-sm" name="comentario" rows="4" placeholder="Escreva seu comentário" inputmode="text"></textarea>
@@ -58,9 +55,9 @@
             <div class="row">
                 <h2 class="text-info text-left p-3">Comentários</h2>
                 <div class="col-md-12 mt-1">
-                    <?php include('../Includes/comentarios.php'); ?>            
+                    <?php include('./Includes/comentarios.php'); ?>            
                 </div>
             </div>
     </div>
 </body>
-<?php include('../Includes/footer.php')?>
+<?php include('./Includes/footer.php')?>
