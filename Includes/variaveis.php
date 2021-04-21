@@ -14,13 +14,7 @@ $data = strtotime(date('Y/m/d H:i:s'));
 $comentario = isset($_POST['comentario']) ? strip_tags($_POST['comentario']) : '';
 $foto = isset($_FILES['foto']) ? $_FILES['foto'] : '';
 $mensagemErro = '';
-
-if (isset($_POST['acao'])) { 
-    $acao = $_POST['acao']; 
-} elseif(isset($_GET['id'])) {
-    $_SESSION['id'] = $_GET['id'];
-}else {
-    $acao = "";
-}
+$acao = isset($_GET['id']) ? "Editar" : "Publicar";
+$url = explode("/", $_GET['url'] ?? 'home');
 
 ?>

@@ -1,15 +1,3 @@
-<?php   
-
-   if (!isset($_SESSION['loggedin'])) {
-    $_SESSION['loggedin'] = "Usuário não Logado";
-}
-    if (isset($_GET['id'])){
-        $acao = "Editar";
-    } else {
-        $acao = "Publicar";
-    }
-?>
-
 <body class="container bg-light">
     <div class="container bg-white">
         <header>
@@ -17,19 +5,14 @@
         </header>
         <nav>
             <div class="col-md-12 mt-3 text-right">               
-                <small>Olá: <b><?=$_SESSION['loggedin']?></b>
+                <small>Olá: <b>{{sessao}}</b>
                 <a name="btnSair" class="ml-2" href="./Acoes/logout.php"><img src="./Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
             </div>
         </nav>
         <form action="Acoes/publicar.php" method="POST">
-            <input type="hidden" id="acao" name="acao" value="<?=$acao?>">
+            <input type="text" id="acao" name="acao" value="{{acao}}">
             <div class="row">
-            <?php 
-                if (($_SESSION['loggedin'] == "Usuário não Logado")){
-                    echo '<div class="d-none">';
-                }
-            ?>
-            <h2 class="text-info text-left p-3"><?=$acao?> seu Comentário</h2>
+            <h2 class="text-info text-left p-3">{{acao}} seu Comentário</h2>
                 <div class="col-md-9">
                     <div class="form-group">
                         <textarea class="form-control form-control-sm" name="comentario" rows="4" placeholder="Escreva seu comentário" inputmode="text"></textarea>
@@ -47,15 +30,10 @@
                 </div>
             </div>
         </form>
-        <?php 
-             if (($_SESSION['loggedin'] == "Usuário não Logado")){
-                echo '</div>';
-             }
-        ?>
             <div class="row">
                 <h2 class="text-info text-left p-3">Comentários</h2>
                 <div class="col-md-12 mt-1">
-                    <?php include('./Includes/comentarios.php'); ?>            
+                    {{comentarios}}      
                 </div>
             </div>
     </div>
