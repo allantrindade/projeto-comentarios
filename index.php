@@ -10,26 +10,31 @@ include 'Includes/head.html';
 $objPages = new classPages();
 $objUrl = new classUrl();
 
-if ($objUrl->getURL($url) == 'home') {
-    $template = new Template("pages/home.html");
-    $template->set("sessao", $_SESSION['usuario']);
-    $template->set("acao", $acao);
-    $template->set("idGet", $idGet);
-    $template->set("comentarios", $objPages->tabelaComentarios());
-    echo $template->render();
 
-} elseif ($objUrl->getURL($url) == 'login') {
-    $template = new Template("pages/login.html");
-    $template->set("sessao", $_SESSION['usuario']);
-    echo $template->render();
-
-} elseif ($objUrl->getURL($url) == 'cadastro') {
-    $template = new Template("pages/cadastro.html");
-    $template->set("sessao", $_SESSION['usuario']);
-    echo $template->render();
+switch ($objUrl->getURL($url)) {
+    case 'home':
+        $template = new Template("pages/home.html");
+        $template->set("sessao", $usuarioLogado);
+        $template->set("acao", $acao);
+        $template->set("idGet", $idGet);
+        $template->set("openClass", $objPages->openClass($usuarioLogado));
+        $template->set("closeClass", $objPages->closeClass($usuarioLogado));
+        $template->set("comentarios", $objPages->tabelaComentarios());
+        echo $template->render();
+    break;
+    case 'login':
+        $template = new Template("pages/login.html");
+        $template->set("sessao", $usuarioLogado);
+        echo $template->render();
+    break;
+    case 'cadastro':
+        $template = new Template("pages/cadastro.html");
+        $template->set("sessao", $usuarioLogado);
+        echo $template->render();
+    break;
+    default:
+        $template = new Template("pages/erro.html");
+        echo $template->render();
+    break;
 }
-else {
-    include "Pages/erro.html";
-}
-
 include 'Includes/footer.html';

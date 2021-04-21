@@ -1,11 +1,21 @@
 <?php
     class classPages {
 
-        //Atributos
-        private $html;
+        //Metodo esconde div htmls
+        public function openClass ($session): string {
+            $html = $session === 'anônimo' ? "<div class='d-none'>" : "";
+            return $html;
+            }
+
+        //Metodo esconde div htmls
+        public function closeClass ($session): string {
+            $html = $session === 'anônimo' ? "</div>" : "";
+            return $html;
+            }
 
         //Metodo retorna uma string com os cards comentários
         public function tabelaComentarios(): string {
+            $html = '';
             $crud = new classCrud();
             $result = $crud->selectDB('*', 'comentarios', 'ORDER BY id DESC', array());
             while ($fetch = $result->fetch(PDO::FETCH_OBJ)) {
@@ -16,7 +26,7 @@
                     $usuario = new \stdClass();
                     $usuario->imagem = 'anonimo.jpg';
                 }
-                $this->html .= "
+                $html .= "
                 <div class='card mb-2'>
                     <div class='row no-gutters'>
                         <div class='col-md-2'>
@@ -28,16 +38,17 @@
                                 <h5 class=1card-title mb-0 font-weight-normal1>{$fetch->id} - {$fetch->usuario}</h5>
                                 <p class='card-subtitle mb-1 text-muted'><small>{$fetch->email}</small></p>
                                 <p class='card-text font-weight-light'>{$fetch->comentario}</p>
-                                <p class='card-text'><small class='text-muted'>{$data_edicao}</small>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                                <span class='float-right mr-2'><a href='./Acoes/deletar.php?id={$fetch->id}&user={$fetch->usuario}'>
-                                <img src='./Images/Icones/deletar.png' title='Deletar' alt='Deletar'></a></span>
-                                <span class='float-right mr-3'><a href='?id={$fetch->id}&user={$fetch->usuario}'><img src='./Images/Icones/editar.png' title='Editar' alt='Editar'></a></span>
+                                <p class='card-text'><small class='text-muted'>{$data_edicao}</small>
+                                {$this->openClass($_SESSION['usuario'])}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                    <span class='float-right mr-2'><a href='./Acoes/deletar.php?id={$fetch->id}&user={$fetch->usuario}'><img src='./Images/Icones/deletar.png' title='Deletar' alt='Deletar'></a></span>
+                                    <span class='float-right mr-3'><a href='?id={$fetch->id}&user={$fetch->usuario}'><img src='./Images/Icones/editar.png' title='Editar' alt='Editar'></a></span>
+                                {$this->closeClass($_SESSION['usuario'])}
                                 </p>
                             </div>
                         </div>
                     </div>    
                 </div>";                  
             }
-            return $this->html; 
+            return $html; 
         }
     }
