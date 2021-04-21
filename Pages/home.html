@@ -5,7 +5,7 @@
         </header>
         <nav>
             <div class="col-md-12 mt-3 text-right">               
-                <small>Olá: <b>{{sessao}}</b>
+                <small>Olá: <b>{{usuariologado}}</b>
                 <a name="btnSair" class="ml-2" href="./Acoes/logout.php"><img src="./Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
             </div>
         </nav>
@@ -17,7 +17,7 @@
                     <h2 class="text-info text-left p-3">{{acao}} seu Comentário</h2>
                     <div class="col-md-9">
                         <div class="form-group">
-                            <textarea class="form-control form-control-sm" name="comentario" rows="4" placeholder="Escreva seu comentário" inputmode="text"></textarea>
+                            <textarea class="form-control form-control-sm" name="comentario" rows="3" placeholder="No que você está pensando, {{usuariologado}}?" inputmode="text"></textarea>
                         </div>
                     </div>
                     <div class="col-md-3 p-3">

@@ -14,12 +14,12 @@ $objUrl = new classUrl();
 switch ($objUrl->getURL($url)) {
     case 'home':
         $template = new Template("pages/home.html");
-        $template->set("sessao", $usuarioLogado);
+        $template->set("usuariologado", $usuarioLogado);
         $template->set("acao", $acao);
         $template->set("idGet", $idGet);
         $template->set("openClass", $objPages->openClass($usuarioLogado));
         $template->set("closeClass", $objPages->closeClass($usuarioLogado));
-        $template->set("comentarios", $objPages->tabelaComentarios());
+        $template->set("comentarios", $objPages->tabelaComentarios($usuarioLogado));
         echo $template->render();
     break;
     case 'login':

@@ -10,11 +10,11 @@
 
         //CONSTRUTOR
         public function __construct() {
-            $this->server = "127.0.0.1";
-            $this->port = "3306";
-            $this->user = "root";
-            $this->password = "";
-            $this->database = "bdcomentarios"; 
+            $this->server = SERVER;
+            $this->port = PORT;
+            $this->user = USER;
+            $this->password = PASSWORD;
+            $this->database = DATABASE; 
         }
         
         //MÉTODO PARA CONECTAR COM O BANCO DE DADOS
