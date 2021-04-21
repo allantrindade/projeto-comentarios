@@ -12,19 +12,20 @@ $objUrl = new classUrl();
 
 if ($objUrl->getURL($url) == 'home') {
     $template = new Template("pages/home.html");
-    $template->set("sessao", $_SESSION['loggedin']);
+    $template->set("sessao", $_SESSION['usuario']);
     $template->set("acao", $acao);
-    $template->set("comentarios",$objPages->tabelaComentarios());
+    $template->set("idGet", $idGet);
+    $template->set("comentarios", $objPages->tabelaComentarios());
     echo $template->render();
 
 } elseif ($objUrl->getURL($url) == 'login') {
     $template = new Template("pages/login.html");
-    $template->set("sessao", $_SESSION['loggedin']);
+    $template->set("sessao", $_SESSION['usuario']);
     echo $template->render();
 
 } elseif ($objUrl->getURL($url) == 'cadastro') {
     $template = new Template("pages/cadastro.html");
-    $template->set("sessao", $_SESSION['loggedin']);
+    $template->set("sessao", $_SESSION['usuario']);
     echo $template->render();
 }
 else {

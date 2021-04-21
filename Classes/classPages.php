@@ -10,7 +10,7 @@
             $result = $crud->selectDB('*', 'comentarios', 'ORDER BY id DESC', array());
             while ($fetch = $result->fetch(PDO::FETCH_OBJ)) {
                 $data_criacao = date('d/m/Y H:i', $fetch->data_criacao);
-                $data_edicao = date('d/m/Y H:i', $fetch->data_criacao);
+                $data_edicao = 'Editado: ' . date('d/m/Y H:i', $fetch->data_edicao);
                 $usuario = $crud->selectDB('imagem', 'usuarios', "WHERE usuario ='{$fetch->usuario}'", array())->fetch(PDO::FETCH_OBJ);
                 if (empty($usuario->imagem)){
                     $usuario = new \stdClass();

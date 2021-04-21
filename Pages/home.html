@@ -10,7 +10,8 @@
             </div>
         </nav>
         <form action="Acoes/publicar.php" method="POST">
-            <input type="text" id="acao" name="acao" value="{{acao}}">
+            <input type="hidden" name="acao" value="{{acao}}">
+            <input type="hidden" name="idGet" value="{{idGet}}">
             <div class="row">
             <h2 class="text-info text-left p-3">{{acao}} seu Comentário</h2>
                 <div class="col-md-9">

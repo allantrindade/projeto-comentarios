@@ -15,7 +15,7 @@ include_once(dirname(__FILE__).'\classConexao.php');
                 $dado = $stmt->fetch();              
                 if ($h->verifyHash($senha ,$dado['senha'])) {
                     session_start();
-                    $_SESSION['loggedin'] = $dado['usuario'];
+                    $_SESSION['usuario'] = $dado['usuario'];
                     $_SESSION['email'] = $dado['email'];
                     return true;
                 } else {
