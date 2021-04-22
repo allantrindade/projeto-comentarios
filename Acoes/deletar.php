@@ -4,7 +4,7 @@ include('../Classes/classCrud.php');
 include('../Includes/variaveis.php');
 
 
-if (($idGet == '')) {
+if (($id == '')) {
      $mensagemErro = "<script>alert('Preencher o campo id para excluir')</script>";
      echo $mensagemErro;
 }
@@ -14,6 +14,6 @@ elseif ($usuarioLogado != $userGet && $userGet != 'anônimo') {
 }
 elseif ($mensagemErro === '') {
     $crud = new classCrud();
-    $crud->deleteDB('comentarios', '?', array($idGet));
+    $crud->deleteDB('comentarios', '?', array($id));
     echo("<script>alert('Comentário Excluido');window.location.href='../home'</script>");
 }

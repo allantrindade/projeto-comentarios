@@ -14,7 +14,7 @@
             }
 
         //Metodo retorna uma string com os cards comentários
-        public function tabelaComentarios($session): string {
+        public function getComentarios($session): string {
             $html = '';
             $crud = new classCrud();
             $result = $crud->selectDB('*', 'comentarios', 'ORDER BY id DESC', array());
@@ -30,7 +30,7 @@
                 <div class='card mb-2'>
                     <div class='row no-gutters'>
                         <div class='col-md-2'>
-                            <img class='img-thumbnail rounded-circle' style='width: 200px; height: 130px;' alt='Usuário' src='./Images/Usuarios/{$usuario->imagem}'/>
+                            <img class='img-thumbnail rounded-circle' style='width: 200px; height: 130px;' alt='Usuário' src='{{root}}/Images/Usuarios/{$usuario->imagem}'/>
                         </div>
                         <div class='col-md-10'>
                             <div class='card-body p-2'>
@@ -40,8 +40,8 @@
                                 <p class='card-text font-weight-light'>{$fetch->comentario}</p>
                                 <p class='card-text'><small class='text-muted'>{$data_edicao}</small>
                                 {$this->openClass($session)}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                                    <span class='float-right mr-2'><a href='./Acoes/deletar.php?id={$fetch->id}&user={$fetch->usuario}'><img src='./Images/Icones/deletar.png' title='Deletar' alt='Deletar'></a></span>
-                                    <span class='float-right mr-3'><a href='?id={$fetch->id}&user={$fetch->usuario}'><img src='./Images/Icones/editar.png' title='Editar' alt='Editar'></a></span>
+                                    <span class='float-right mr-2'><a href='{{root}}/Acoes/deletar.php?id={$fetch->id}&user={$fetch->usuario}'><img src='{{root}}/Images/Icones/deletar.png' title='Deletar' alt='Deletar'></a></span>
+                                    <span class='float-right mr-3'><a href='{{root}}/home/{$fetch->id}'><img src='{{root}}/Images/Icones/editar.png' title='Editar' alt='Editar'></a></span>
                                 {$this->closeClass($session)}
                                 </p>
                             </div>

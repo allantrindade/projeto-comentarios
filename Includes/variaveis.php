@@ -34,12 +34,16 @@ $data = strtotime(date('Y/m/d H:i:s'));
 //Variaveis do Index
 $usuarioLogado = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : 'anônimo';
 $emailLogado = isset($_SESSION['email']) ? $_SESSION['email'] : 'anônimo';
-$acao = isset($_GET['id']) ? "Editar" : "Publicar";
 $url = explode("/", isset($_GET['url']) ? $_GET['url'] : 'home');
+$acao = isset($url[1]) ? "Editar" : "Publicar";
 
 //Variaveis do GET
-$idGet = isset($_GET['id']) ? $_GET['id'] : "" ;
+$idGet = isset($url[1]) ? end($url): "" ;
+$id = isset($_GET['id']) ? $_GET['id'] : "" ;
 $userGet = isset($_GET['user']) ? $_GET['user'] : "" ;
 
 //Validações de Erros
 $mensagemErro = '';
+
+//URL Absoluta do Projeto
+$root = dirname( $_SERVER["PHP_SELF"] ) == DIRECTORY_SEPARATOR ? "" : dirname( $_SERVER["PHP_SELF"] );

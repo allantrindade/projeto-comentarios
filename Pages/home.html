@@ -1,15 +1,15 @@
 <body class="container bg-light">
     <div class="container bg-white">
         <header>
-            <img src="./Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
+            <img src="{{root}}/Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
         </header>
         <nav>
             <div class="col-md-12 mt-3 text-right">               
                 <small>Olá: <b>{{usuariologado}}</b>
-                <a name="btnSair" class="ml-2" href="./Acoes/logout.php"><img src="./Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
+                <a name="btnSair" class="ml-2" href="{{root}}/Acoes/logout.php"><img src="{{root}}/Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>                                
             </div>
         </nav>
-        <form action="Acoes/publicar.php" method="POST">
+        <form action="{{root}}/Acoes/publicar.php" method="POST">
             <input type="hidden" name="acao" value="{{acao}}">
             <input type="hidden" name="idGet" value="{{idGet}}">
             {{openClass}}

@@ -19,18 +19,21 @@ switch ($objUrl->getURL($url)) {
         $template->set("idGet", $idGet);
         $template->set("openClass", $objPages->openClass($usuarioLogado));
         $template->set("closeClass", $objPages->closeClass($usuarioLogado));
-        $template->set("comentarios", $objPages->tabelaComentarios($usuarioLogado));
+        $template->set("comentarios", $objPages->getComentarios($usuarioLogado));
+        $template->set("root", $root);
         echo $template->render();
     break;
     case 'login':
         $template = new Template("pages/login.html");
         $template->set("sessao", $usuarioLogado);
+        $template->set("root", $root);
         echo $template->render();
     break;
     case 'cadastro':
         $template = new Template("pages/cadastro.html");
         $template->set("sessao", $usuarioLogado);
-        echo $template->render();
+        $template->set("root", $root);
+        echo $template->render(); 
     break;
     default:
         $template = new Template("pages/erro.html");
