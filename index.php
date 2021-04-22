@@ -10,7 +10,6 @@ include 'Includes/head.html';
 $objPages = new classPages();
 $objUrl = new classUrl();
 
-
 switch ($objUrl->getURL($url)) {
     case 'home':
         $template = new Template("pages/home.html");
@@ -21,6 +20,7 @@ switch ($objUrl->getURL($url)) {
         $template->set("closeClass", $objPages->closeClass($usuarioLogado));
         $template->set("comentarios", $objPages->getComentarios($usuarioLogado));
         $template->set("root", $root);
+        $template->set("cont", $objPages->getContComentarios());
         echo $template->render();
     break;
     case 'login':

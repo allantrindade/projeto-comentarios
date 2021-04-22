@@ -13,6 +13,12 @@
             return $html;
             }
 
+        //Metodo retorna a quantidade comentários
+        public function getContComentarios() {
+            $crud = new classCrud();
+            $cont = $crud->selectDB('COUNT(*)', 'comentarios', '', array())->fetchColumn();
+            return $cont;
+        }
         //Metodo retorna uma string com os cards comentários
         public function getComentarios($session): string {
             $html = '';
@@ -27,12 +33,12 @@
                     $usuario->imagem = 'anonimo.jpg';
                 }
                 $html .= "
-                <div class='card mb-2'>
+                <div class='card mb-2 border border-secondary p-1'>
                     <div class='row no-gutters'>
                         <div class='col-md-2'>
-                            <img class='img-thumbnail rounded-circle' style='width: 200px; height: 130px;' alt='Usuário' src='{{root}}/Images/Usuarios/{$usuario->imagem}'/>
+                            <img class='img-thumbnail border-0' style='width: 200px; height: 130px;' alt='Usuário' src='{{root}}/Images/Usuarios/{$usuario->imagem}'/>
                         </div>
-                        <div class='col-md-10'>
+                        <div class='col-md-10 bg-white'>
                             <div class='card-body p-2'>
                                 <span class='float-right text-muted'>{$data_criacao}</span>
                                 <h5 class=1card-title mb-0 font-weight-normal1>{$fetch->id} - {$fetch->usuario}</h5>
