@@ -8,12 +8,26 @@
         {
             $this->page = $page;
         }
-
+        
+        /**
+         * set
+         * Método responsável por setar as tags a serem trocadas
+         * 
+         * @param  string $key      = Chave a ser procurada na página.
+         * @param  string $value    = Valor a ser trocado pelo chave na página.
+         * @return array             = Retorna para o array do atributo $tags.
+         */
         public function set($key, $value)
         {
             $this->tags[$key] = $value;
         }
-     
+             
+        /**
+         * render
+         * Método reponsável por renderizar a pagina em html.
+         * 
+         * @return string       = Retorna uma string com o template da pagina.
+         */
         public function render()
         {
             if (!file_exists($this->page)) {

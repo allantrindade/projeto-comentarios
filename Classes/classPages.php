@@ -1,25 +1,56 @@
 <?php
+    
+    /**
+     * classPages
+     * Classe responsável por executar as funções em PHP e retornar o HTML para o Index.
+     * 
+     */
     class classPages {
 
-        //Metodo esconde div htmls
+         
+        /**
+         * openClass
+         * Método responsável por criar uma div com a classe "d-none" do Bootstrap.
+         *
+         * @param  string $session  = Sesão do usuário logado. 
+         * @return string $html     = Retorna a tag HTML "div class='d-none'".
+         */
         public function openClass ($session): string {
             $html = $session === 'anônimo' ? "<div class='d-none'>" : "";
             return $html;
             }
-
-        //Metodo esconde div htmls
+        
+        /**
+         * closeClass
+         * Método responsável por fechar uma div.
+         * 
+         * @param  string  $session  = Sesão do usuário logado.
+         * @return string $html     = Retorna a tag HTML "/div".
+         */
         public function closeClass ($session): string {
             $html = $session === 'anônimo' ? "</div>" : "";
             return $html;
             }
-
-        //Metodo retorna a quantidade comentários
-        public function getContComentarios() {
+            
+        /**
+         * getContComentarios
+         * Método responsável por contar os comentários na tabela Comentarios.
+         *
+         * @return string $cont = Retorna a quantidade de comentários.
+         */
+        public function getContComentarios(): string {
             $crud = new classCrud();
             $cont = $crud->selectDB('COUNT(*)', 'comentarios', '', array())->fetchColumn();
             return $cont;
-        }
-        //Metodo retorna uma string com os cards comentários
+        }       
+        /**
+         * getComentarios
+         * Método responsável por realizar a busca no banco de dados e criar as tags
+         * para montagem dos cards no HTML  
+         *
+         * @param  string $session  = Sesão do usuário logado.
+         * @return string $html     = Retorna o HTML com os cards de comentários montados.
+         */
         public function getComentarios($session): string {
             $html = '';
             $crud = new classCrud();

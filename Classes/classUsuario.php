@@ -1,9 +1,19 @@
 <?php
 include_once(dirname(__FILE__).'\classConexao.php');
-
+    
+    /**
+     * classUsuario
+     * Classe responsável por criar a interação do usuario ao sistema.
+     */
     class classUsuario extends classConexao {
-      
-        //METODO LOGAR
+                  
+        /**
+         * login
+         * Método reponsável por realizar o login do usuário no sistema.
+         * @param  string $usuario      = String do input usuario.
+         * @param  string $senha        = String do input senha. 
+         * @return bool                 = Se logado com sucesso retorna TRUE senão FALSE
+         */
         public function login($usuario, $senha){
             $h = new classPassword();
             $query = "SELECT * FROM usuarios WHERE usuario = :usuario";

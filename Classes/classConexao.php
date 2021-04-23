@@ -1,4 +1,9 @@
 <?php
+    
+    /**
+     * classConexao
+     * Classe responsável por estabelecer a conexão com o Banco de Dados.
+     */
     class classConexao {
         //ATRIBUTOS
         private $server;
@@ -16,8 +21,12 @@
             $this->password = PASSWORD;
             $this->database = DATABASE; 
         }
-        
-        //MÉTODO PARA CONECTAR COM O BANCO DE DADOS
+                      
+        /**
+         * conectDB
+         * Método responsável por conectar com o Banco de Dados.
+         * @return bool Retorna TRUE se realizar a conexão. 
+         */
         public function conectDB() {
             try {
                 if(!isset($this->pdo )){
