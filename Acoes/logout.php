@@ -1,10 +1,10 @@
- <?php 
 
-    function logout() {
-        session_start();
-        $_SESSION['usuario'] = 'anônimo';
-        $_SESSION['email'] = '';
-        header("Location: ../login");
+    <?php
+    include('../Includes/variaveis.php');
+    include('../Classes/classUsuario.php');
+    $user = new classUsuario();
+
+    if ($user->logout()) {
+        echo "<script>window.location.href='../login'</script>";   
     }
-
-    logout();
+?>

@@ -22,7 +22,7 @@ include_once(dirname(__FILE__).'\classConexao.php');
             $stmt->execute();          
             
             if ($stmt->rowCount() > 0) {
-                $dado = $stmt->fetch();              
+                $dado = $stmt->fetch();            
                 if ($h->verifyHash($senha ,$dado['senha'])) {
                     session_start();
                     $_SESSION['usuario'] = $dado['usuario'];
@@ -34,5 +34,17 @@ include_once(dirname(__FILE__).'\classConexao.php');
             } else {
                 return false;
             } 
+        }
+        
+        /**
+         * logout
+         * Método responsável por fazer o logout do usuário no site.
+         *
+         * @return bool     = Retorna true;
+         */
+        public function logout() {
+            $_SESSION['usuario'] = 'anônimo';
+            $_SESSION['email'] = 'anônimo';
+            return true;
         }
     }

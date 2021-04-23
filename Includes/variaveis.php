@@ -2,7 +2,7 @@
 //Inicializa a sessão do Usuário
 session_start();
 
-//Conexão do Banco de Dados AWS
+// //Conexão do Banco de Dados AWS
 // CONST SERVER = "mysqldb.c9jvbdikymy4.us-east-1.rds.amazonaws.com";
 // CONST PORT = "3306";
 // CONST USER = "admin";
@@ -18,8 +18,9 @@ CONST DATABASE = "bdcomentarios";
 
 //Inputs Page Cadastro
 $foto = isset($_FILES['foto']) ? $_FILES['foto'] : '';
-$email = isset($_POST['email']) ? addslashes($_POST['email']) : '';
 $usuario1 = isset($_POST['usuario1']) ? addslashes($_POST['usuario1']) : '';
+$email = isset($_POST['email']) ? addslashes($_POST['email']) : '';
+$data_cadastro = strtotime(date('Y/m/d'));
 $senha1 = isset($_POST['senha1']) ? addslashes($_POST['senha1']) : '';
 $senha2 = isset($_POST['senha2']) ? addslashes($_POST['senha2']) : '';
 
@@ -45,5 +46,5 @@ $userGet = isset($_GET['user']) ? $_GET['user'] : "" ;
 //Validações de Erros
 $mensagemErro = '';
 
-//URL Absoluta do Projeto
+//URL Absoluta do Site
 $root = dirname( $_SERVER["PHP_SELF"] ) == DIRECTORY_SEPARATOR ? "" : dirname( $_SERVER["PHP_SELF"] );

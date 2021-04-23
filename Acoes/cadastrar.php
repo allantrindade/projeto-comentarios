@@ -39,7 +39,7 @@ if (isset($_POST['btnCadastrar'])) {
     }
     elseif ($mensagemErro === '') {
         $imagem->gravarFoto($foto);
-        $crud->insertDB('usuarios', '?,?,?,?', array($email, $usuario1, $hash->passwordHash($senha2), $imagem->gerarNome($foto)), 'email, usuario, senha, imagem');
+        $crud->insertDB('usuarios', '?,?,?,?,?', array($usuario1, $email, $data_cadastro, $hash->passwordHash($senha2), $imagem->gerarNome($foto)), 'usuario, email, data_cadastro, senha, imagem');
         echo "<script>alert('Usuário Cadastrado');window.location.href='../login'</script>";
     }
 }

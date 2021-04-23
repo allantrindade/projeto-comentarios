@@ -101,21 +101,23 @@
         
         /**
          * getUsuarios
-         * Método responsável por realizar a busca de usuários no BD e retorna 
-         * uma tabela com os dados. 
+         * Método responsável por realizar a busca de usuários no BD, retorna
+         * tags HTML de uma tabela com os dados. 
          * 
          * @return string       $html     = Retorna o HTML com a tabela de usuarios.
          */
         public function getUsuarios(): string {
             $html = '';
             $crud = new classCrud();
-            $result = $crud->selectDB('id, usuario, email', 'usuarios', 'ORDER BY id ASC', array());
-            while ($fetch = $result->fetch(PDO::FETCH_OBJ)) {                     
+            $result = $crud->selectDB('id, usuario, email, data_cadastro', 'usuarios', 'ORDER BY id ASC', array());
+            while ($fetch = $result->fetch(PDO::FETCH_OBJ)) {  
+                $data_cadastro = date('d/m/Y', $fetch->data_cadastro);                   
                 $html .= "
                     <tr>
                         <td>$fetch->id</td>
                         <td>$fetch->usuario</td>
                         <td>$fetch->email</td>
+                        <td>$data_cadastro</td>
                     <tr> 
                     ";                  
             }

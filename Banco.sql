@@ -4,8 +4,9 @@ USE bdcomentarios;
 
 CREATE TABLE usuarios
 	(id INT PRIMARY KEY AUTO_INCREMENT,
+	 usuario VARCHAR(30) NOT NULL,
 	 email VARCHAR(30) NOT NULL,
-     usuario VARCHAR(30) NOT NULL,
+	 data_cadastro VARCHAR( 15 ) NOT NULL,
 	 senha VARCHAR(90) NOT NULL,
 	 imagem VARCHAR(90) NOT NULL);
 
