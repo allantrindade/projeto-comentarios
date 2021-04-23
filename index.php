@@ -25,14 +25,22 @@ switch ($objUrl->getURL($url)) {
     break;
     case 'login':
         $template = new Template("pages/login.html");
-        $template->set("sessao", $usuarioLogado);
+        $template->set("usuariologado", $usuarioLogado);
         $template->set("root", $root);
         echo $template->render();
     break;
     case 'cadastro':
         $template = new Template("pages/cadastro.html");
-        $template->set("sessao", $usuarioLogado);
+        $template->set("usuariologado", $usuarioLogado); //Usuário logado
+        $template->set("root", $root); //Local Absoluto do Site
+        echo $template->render(); 
+    break;
+    case 'consulta':
+        $template = new Template("pages/consulta.html");
+        $template->set("usuariologado", $usuarioLogado);
         $template->set("root", $root);
+        $template->set("cont", $objPages->getContUsuarios());
+        $template->set("usuarios", $objPages->getUsuarios());
         echo $template->render(); 
     break;
     default:

@@ -1,0 +1,46 @@
+<body class="container bg-secondary">
+    <div class="bg-light rounded">
+        <header>
+            <img src="{{root}}/Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="collapse navbar-collapse">               
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="cadastro">Cadastro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="consulta">Consulta</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <span class="text-white">Olá: {{usuariologado}}</span>
+                    <a name="btnSair" class="ml-2" href="{{root}}/Acoes/logout.php"><img src="{{root}}/Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>
+              </form>
+            </div>
+        </nav>
+        <h2 class="text-dark text-left p-3">Usuários Cadastrados ({{cont}})</h2>
+            <div class="row">              
+                <div class="col-md-12">
+                    <div class="container">
+                        <table class="table table-hover table-bordered text-center">
+                            <thead class="thead">
+                                <tr class="table-active ">
+                                    <th scope="col">ID</th>
+                                    <th scope="col">USUÁRIO</th>
+                                    <th scope="col">EMAIL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{usuarios}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

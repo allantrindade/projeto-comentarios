@@ -6,8 +6,7 @@
      * 
      */
     class classPages {
-
-         
+      
         /**
          * openClass
          * Método responsável por criar uma div com a classe "d-none" do Bootstrap.
@@ -41,6 +40,17 @@
         public function getContComentarios(): string {
             $crud = new classCrud();
             $cont = $crud->selectDB('COUNT(*)', 'comentarios', '', array())->fetchColumn();
+            return $cont;
+        }
+        /**
+         * getContComentarios
+         * Método responsável por contar os usuários na tabela Usuarios.
+         *
+         * @return string $cont = Retorna a quantidade de usuários cadastrados.
+         */
+        public function getContUsuarios(): string {
+            $crud = new classCrud();
+            $cont = $crud->selectDB('COUNT(*)', 'usuarios', '', array())->fetchColumn();
             return $cont;
         }       
         /**
@@ -85,6 +95,29 @@
                         </div>
                     </div>    
                 </div>";                  
+            }
+            return $html; 
+        }
+        
+        /**
+         * getUsuarios
+         * Método responsável por realizar a busca de usuários no BD e retorna 
+         * uma tabela com os dados. 
+         * 
+         * @return string       $html     = Retorna o HTML com a tabela de usuarios.
+         */
+        public function getUsuarios(): string {
+            $html = '';
+            $crud = new classCrud();
+            $result = $crud->selectDB('id, usuario, email', 'usuarios', 'ORDER BY id ASC', array());
+            while ($fetch = $result->fetch(PDO::FETCH_OBJ)) {                     
+                $html .= "
+                    <tr>
+                        <td>$fetch->id</td>
+                        <td>$fetch->usuario</td>
+                        <td>$fetch->email</td>
+                    <tr> 
+                    ";                  
             }
             return $html; 
         }
