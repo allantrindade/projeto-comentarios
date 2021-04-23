@@ -3,57 +3,55 @@
         <header>
             <img src="{{root}}/Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
         </header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
             <div class="collapse navbar-collapse">               
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="home">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="cadastro">Cadastro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="consulta">Consulta</a>
-                </li>
-              </ul>
-              <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="cadastro">Cadastro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consulta">Consulta</a>
+                    </li>
+                </ul>
                 <span class="text-white">Olá: {{usuariologado}}</span>
-                    <a name="btnSair" class="ml-2" href="{{root}}/Acoes/logout.php"><img src="{{root}}/Images/Icones/sair.png" title="Sair" alt="Sair"></a> </small>
-              </form>
+                <a name="btnSair" class="ml-md-2" href="{{root}}/Acoes/logout.php">
+                    <img src="{{root}}/Images/Icones/sair.png" title="Sair" alt="Sair">
+                </a>
             </div>
         </nav>
-        <div class="container p-4">
-        <form action="{{root}}/Acoes/publicar.php" method="POST">
-            <input type="hidden" name="acao" value="{{acao}}">
-            <input type="hidden" name="idGet" value="{{idGet}}">
-            
-                {{openClass}} 
-                <div class="row">
-                    <h2 class="text-dark text-left p-3">{{acao}} seu Comentário</h2>
-                    <div class="col-md-9">
-                        <div class="form-group">
-                            <textarea class="form-control form-control-sm" name="comentario" rows="3" placeholder="No que você está pensando, {{usuariologado}}?" inputmode="text"></textarea>
+        <div class="container p-md-4">
+            <form action="{{root}}/Acoes/publicar.php" method="POST">
+                <input type="hidden" name="acao" value="{{acao}}">
+                <input type="hidden" name="idGet" value="{{idGet}}">        
+                    {{openClass}} 
+                    <div class="row">
+                        <h2 class="text-dark text-left p-3">{{acao}} seu Comentário</h2>
+                        <div class="col-md-8 col-lg-9">
+                            <div class="form-group">
+                                <textarea class="form-control form-control-sm" name="comentario" rows="3" placeholder="No que você está pensando, {{usuariologado}}?" inputmode="text"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-3">
+                            <div class="form-group">
+                                <input name="btnPublicar" class="btn btn-dark" type="submit" value="Publicar">
+                                <input class="btn btn-outline-dark" type="reset" value="Limpar">           
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="anonimo" id="anonimo">
+                                <label class="form-check-label" for="anonimo">Comentar Anônimo</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <input name="btnPublicar" class="btn btn-dark" type="submit" value="Publicar">
-                            <input class="btn btn-outline-dark" type="reset" value="Limpar">           
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="anonimo" id="anonimo">
-                            <label class="form-check-label" for="anonimo">Comentar Anônimo</label>
-                        </div>
-                    </div>
-                </div>
-            {{closeClass}}
+                {{closeClass}}
             </form>
             <div class="row">
-                <h2 class="text-dark text-left p-3">Comentários ({{cont}})</h2>
-                    <div class="col-md-12 mt-1">
-                        {{comentarios}}      
-                    </div>
-                </div>
+                <h2 id="comentarios" class="text-dark text-left p-3">Comentários ({{cont}})</h2>
+                <div class="col-md-12">
+                    {{comentarios}} 
+                </div>     
             </div>
         </div>
     </div>

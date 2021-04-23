@@ -75,11 +75,11 @@
                 }
                 $html .= "
                 <div class='card mb-2 border border-secondary p-1'>
-                    <div class='row no-gutters'>
-                        <div class='col-md-2'>
-                            <img class='img-thumbnail border-0' style='width: 200px; height: 130px;' alt='Usuário' src='{{root}}/Images/Usuarios/{$usuario->imagem}'/>
+                    <div class='row'>
+                        <div class='col-md-2 col-3'>
+                            <img class='img-fluid alt='Usuário' src='{{root}}/Images/Usuarios/{$usuario->imagem}'/>
                         </div>
-                        <div class='col-md-10 bg-white'>
+                        <div class='col-md-10 col-9'>
                             <div class='card-body p-2'>
                                 <span class='float-right text-muted'>{$data_criacao}</span>
                                 <h5 class=1card-title mb-0 font-weight-normal1>{$fetch->id} - {$fetch->usuario}</h5>

@@ -17,12 +17,12 @@ CONST PASSWORD = "";
 CONST DATABASE = "bdcomentarios"; 
 
 //Inputs Page Cadastro
-$foto = isset($_FILES['foto']) ? $_FILES['foto'] : '';
 $usuario1 = isset($_POST['usuario1']) ? addslashes($_POST['usuario1']) : '';
 $email = isset($_POST['email']) ? addslashes($_POST['email']) : '';
 $data_cadastro = strtotime(date('Y/m/d'));
 $senha1 = isset($_POST['senha1']) ? addslashes($_POST['senha1']) : '';
 $senha2 = isset($_POST['senha2']) ? addslashes($_POST['senha2']) : '';
+$foto = isset($_FILES['foto']) ? $_FILES['foto'] : '';
 
 //Inputs Page Login
 $usuario = isset($_POST['usuario']) ? addslashes($_POST['usuario']) : '';
