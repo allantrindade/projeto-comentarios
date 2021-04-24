@@ -43,8 +43,9 @@ $idGet = isset($url[1]) ? end($url): "" ;
 $id = isset($_GET['id']) ? $_GET['id'] : "" ;
 $userGet = isset($_GET['user']) ? $_GET['user'] : "" ;
 
-//Validações de Erros
-$mensagemErro = '';
+//Mensagem de Erros
+$mensagemErro = isset($_SESSION['msgerro']) ? $_SESSION['msgerro'] : "";
+$icon = isset($_SESSION['icon']) ? $_SESSION['icon'] : "";
 
 //URL Absoluta do Site
 $root = dirname( $_SERVER["PHP_SELF"] ) == DIRECTORY_SEPARATOR ? "" : dirname( $_SERVER["PHP_SELF"] );

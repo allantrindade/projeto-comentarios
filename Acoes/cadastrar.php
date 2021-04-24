@@ -14,32 +14,40 @@ if (isset($_POST['btnCadastrar'])) {
     $query = $crud->selectDB('*', 'usuarios', "WHERE usuario ='{$usuario1}' OR email ='{$email}'", array());
     $fetch = $query->fetch(PDO::FETCH_OBJ);
     if ($usuario1 == '' || $senha1 == '' || $senha2 == '') {
-        $mensagemErro = "<script>alert('Preencher todos os campos.');window.location.href='../cadastro'</script>";
-        echo $mensagemErro;
+        $_SESSION['msgerro'] = 'Preencher todos os campos.';
+        $_SESSION['icon'] = 'error';
+        header('Location: ../cadastro');
     }
     elseif ($foto['name'] == '') {
-        $mensagemErro = "<script>alert('Adicionar sua foto.');window.location.href='../cadastro'</script>";
-        echo $mensagemErro;
+        $_SESSION['msgerro'] = 'Adicionar sua foto.';
+        $_SESSION['icon'] = 'error';
+        header('Location: ../cadastro');
     }
     elseif (strpos($email, '@') === false) {
-        $mensagemErro = "<script>alert('Email Inválido.');window.location.href='../cadastro'</script>";
-        echo $mensagemErro;
+        $_SESSION['msgerro'] = 'Email inválido';
+        $_SESSION['icon'] = 'error';
+        header('Location: ../cadastro');
     }
     elseif (strlen($senha1) < 6) {
-        $mensagemErro = "<script>alert('Senha deve conter no mínimo 6 caracteres');window.location.href='../cadastro'</script>";
-        echo $mensagemErro;
+        $_SESSION['msgerro'] = 'Senha deve conter no mínimo 6 caracteres';
+        $_SESSION['icon'] = 'error';
+        header('Location: ../cadastro');
     }
     elseif ($senha1 != $senha2) {
-        $mensagemErro = "<script>alert('Senhas não Conferem.');window.location.href='../cadastro'</script>";
-        echo $mensagemErro;
+        $_SESSION['msgerro'] = 'Senhas não conferem';
+        $_SESSION['icon'] = 'error';
+        header('Location: ../cadastro');
     }
     elseif (!empty($fetch)) {
-        $mensagemErro = "<script>alert('Usuário ou Email já Cadastrado.');window.location.href='../cadastro'</script>";
-        echo $mensagemErro;
+        $_SESSION['msgerro'] = 'Usuário ou Email já Cadastrado.';
+        $_SESSION['icon'] = 'error';
+        header('Location: ../cadastro');
     }
     elseif ($mensagemErro === '') {
         $imagem->gravarFoto($foto);
         $crud->insertDB('usuarios', '?,?,?,?,?', array($usuario1, $email, $data_cadastro, $hash->passwordHash($senha2), $imagem->gerarNome($foto)), 'usuario, email, data_cadastro, senha, imagem');
-        echo "<script>alert('Usuário Cadastrado');window.location.href='../login'</script>";
+        $_SESSION['msgerro'] = 'Usuário Cadastrado com Sucesso.';
+        $_SESSION['icon'] = 'sucess';
+        header('Location: ../login');
     }
 }

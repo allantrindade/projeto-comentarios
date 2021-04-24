@@ -1,27 +1,3 @@
-<body class="container bg-secondary">
-    <div class="bg-light rounded">
-        <header>
-            <img src="{{root}}/Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
-        </header>
-        <nav class="navbar navbar-expand navbar-dark bg-dark">
-            <div class="collapse navbar-collapse">               
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="cadastro">Cadastro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="consulta">Consulta</a>
-                    </li>
-                </ul>
-                <span class="text-white">Olá: {{usuariologado}}</span>
-                <a name="btnSair" class="ml-md-2" href="{{root}}/Acoes/logout.php">
-                    <img src="{{root}}/Images/Icones/sair.png" title="Sair" alt="Sair">
-                </a>
-            </div>
-        </nav>
         <div class="p-4 text-center col-md-10 col-lg-5 mx-auto bg-white">
             <form action="{{root}}/Acoes/cadastrar.php" method="POST" enctype="multipart/form-data">       
                 <h1 class="h3 mt-3 mb-3 font-weight-normal">Cadastro de Usuário</h1>

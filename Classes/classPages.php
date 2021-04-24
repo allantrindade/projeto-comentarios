@@ -76,19 +76,19 @@
                 $html .= "
                 <div class='card mb-2 border border-secondary p-1'>
                     <div class='row'>
-                        <div class='col-md-2 col-3'>
-                            <img class='img-fluid alt='Usuário' src='{{root}}/Images/Usuarios/{$usuario->imagem}'/>
+                        <div class='col-md-2 col-4'>
+                            <img class='img-fluid' alt='Usuário' style='width: 200px; height: 130px;' src='{{root}}/Images/Usuarios/{$usuario->imagem}'/>
                         </div>
-                        <div class='col-md-10 col-9'>
-                            <div class='card-body p-2'>
+                        <div class='col-md-10 col-8'>
+                            <div class='card-body p-1'>
                                 <span class='float-right text-muted'>{$data_criacao}</span>
-                                <h5 class=1card-title mb-0 font-weight-normal1>{$fetch->id} - {$fetch->usuario}</h5>
+                                <h5 class='card-title mb-0 font-weight-normal'>{$fetch->id}- {$fetch->usuario}</h5>
                                 <p class='card-subtitle mb-1 text-muted'><small>{$fetch->email}</small></p>
                                 <p class='card-text font-weight-light'>{$fetch->comentario}</p>
                                 <p class='card-text'><small class='text-muted'>{$data_edicao}</small>
                                 {$this->openClass($session)}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                                    <span class='float-right mr-2'><a href='{{root}}/Acoes/deletar.php?id={$fetch->id}&user={$fetch->usuario}'><img src='{{root}}/Images/Icones/deletar.png' title='Deletar' alt='Deletar'></a></span>
-                                    <span class='float-right mr-3'><a href='{{root}}/home/{$fetch->id}'><img src='{{root}}/Images/Icones/editar.png' title='Editar' alt='Editar'></a></span>
+                                    <span class='float-right'><a href='{{root}}/Acoes/deletar.php?id={$fetch->id}&user={$fetch->usuario}'><img src='{{root}}/Images/Icones/deletar.png' title='Deletar' alt='Deletar'></a></span>
+                                    <span class='float-right mr-2'><a href='{{root}}/home/{$fetch->id}'><img src='{{root}}/Images/Icones/editar.png' title='Editar' alt='Editar'></a></span>
                                 {$this->closeClass($session)}
                                 </p>
                             </div>

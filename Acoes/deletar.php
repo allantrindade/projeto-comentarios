@@ -5,15 +5,19 @@ include('../Includes/variaveis.php');
 
 
 if (($id == '')) {
-     $mensagemErro = "<script>alert('Preencher o campo id para excluir')</script>";
-     echo $mensagemErro;
+    $_SESSION['msgerro'] = 'Preencher o campo id para excluir!';
+    $_SESSION['icon'] = 'error';
+    header('Location: ../home');
 }
 elseif ($usuarioLogado != $userGet && $userGet != 'anônimo') {
-    $mensagemErro = "<script>alert('Você pode excluir somente o seu comentário');window.location.href='../home'</script>";
-    echo $mensagemErro;
+    $_SESSION['msgerro'] = 'Você pode excluir somente o seu comentário!';
+    $_SESSION['icon'] = 'error';
+    header('Location: ../home');
 }
 elseif ($mensagemErro === '') {
     $crud = new classCrud();
     $crud->deleteDB('comentarios', '?', array($id));
-    echo("<script>alert('Comentário Excluido');window.location.href='../home'</script>");
+    $_SESSION['msgerro'] = 'Comentário Excluído.';
+    $_SESSION['icon'] = 'success';
+    header('Location: ../home');
 }

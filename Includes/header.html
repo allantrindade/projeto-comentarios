@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Comentários</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" crossorigin="anonymous">
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body class="container bg-secondary">
+    <div class="bg-light rounded">
+        <header>
+            <img src="{{root}}/Images/Header/header.jpg" style="width: 100%; height: 10%;" alt="Sistema de Comentários">
+        </header>
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+            <div class="collapse navbar-collapse">               
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="cadastro">Cadastro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consulta">Consulta</a>
+                    </li>
+                </ul>
+                <span class="text-white">Olá: {{usuariologado}}</span>
+                <a name="btnSair" class="ml-md-2" href="{{root}}/Acoes/logout.php">
+                    <img src="{{root}}/Images/Icones/sair.png" title="Sair" alt="Sair">
+                </a>
+            </div>
+        </nav>

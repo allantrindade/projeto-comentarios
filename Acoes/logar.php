@@ -5,15 +5,18 @@
     
     if (isset($_POST['btnLogar'])){
         if ($usuario == '' || $senha == '') {
-            $mensagemErro = "<script>alert('Preencher todos os campos.');window.location.href='../login'</script>";
-            echo $mensagemErro;
+            $_SESSION['msgerro'] = 'Preencher todos os campos.';
+            $_SESSION['icon'] = 'error';  
+            header('Location: ../login');
         }
         elseif ($mensagemErro === '') {
             $u = new classUsuario();
             if($u->login($usuario, $senha) == TRUE) {
                 header("Location: ../home");
             } else {
-                echo "<script>alert('Usuário ou Senha Incorretos!');window.location.href='../login'</script>";
+                $_SESSION['msgerro'] = 'Usuário ou Senha Incorretos!';
+                $_SESSION['icon'] = 'error';
+                header('Location: ../login');
             }
         }
     }    

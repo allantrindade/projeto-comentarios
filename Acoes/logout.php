@@ -5,6 +5,6 @@
     $user = new classUsuario();
 
     if ($user->logout()) {
-        echo "<script>window.location.href='../login'</script>";   
+        header('Location: ../login');  
     }
 ?>

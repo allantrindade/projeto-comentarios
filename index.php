@@ -5,11 +5,18 @@ include 'Classes/classPages.php';
 include 'Classes/classCrud.php';
 include 'Includes/variaveis.php';
 
-include 'Includes/head.html';
 
 $objPages = new classPages();
 $objUrl = new classUrl();
 
+//Template Header HTML
+$header = new Template("includes/header.html");
+$header->set("usuariologado", $usuarioLogado);
+$header->set("root", $root);
+echo $header->render();
+
+
+//Template Main HTML
 switch ($objUrl->getURL($url)) {
     case 'home':
         $template = new Template("pages/home.html");
@@ -48,4 +55,14 @@ switch ($objUrl->getURL($url)) {
         echo $template->render();
     break;
 }
-include 'Includes/footer.html';
+
+//Template FOOTER HTML
+$template = new Template("includes/footer.html");
+echo $template->render();
+
+
+if ($mensagemErro != '') {
+    echo "<script>swal('{$mensagemErro}', '' ,'{$icon}');</script>";
+    $_SESSION['msgerro'] = '';
+    $_SESSION['icon'] = '';
+}
