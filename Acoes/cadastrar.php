@@ -47,7 +47,7 @@ if (isset($_POST['btnCadastrar'])) {
         $imagem->gravarFoto($foto);
         $crud->insertDB('usuarios', '?,?,?,?,?', array($usuario1, $email, $data_cadastro, $hash->passwordHash($senha2), $imagem->gerarNome($foto)), 'usuario, email, data_cadastro, senha, imagem');
         $_SESSION['msgerro'] = 'Usuário Cadastrado com Sucesso.';
-        $_SESSION['icon'] = 'sucess';
+        $_SESSION['icon'] = 'success';
         header('Location: ../login');
     }
 }
