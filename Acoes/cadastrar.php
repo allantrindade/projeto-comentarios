@@ -13,7 +13,7 @@ if (isset($_POST['btnCadastrar'])) {
     //Verifica se já tem algum usuário ou email cadastrados iguais
     $query = $crud->selectDB('*', 'usuarios', "WHERE usuario ='{$usuario1}' OR email ='{$email}'", array());
     $fetch = $query->fetch(PDO::FETCH_OBJ);
-    if ($usuario1 == '' || $senha1 == '' || $senha2 == '') {
+    if ($usuario1 == '' || $senha1 == '' || $email == '') {
         $_SESSION['msgerro'] = 'Preencher todos os campos.';
         $_SESSION['icon'] = 'error';
         header('Location: ../cadastro');
@@ -33,11 +33,6 @@ if (isset($_POST['btnCadastrar'])) {
         $_SESSION['icon'] = 'error';
         header('Location: ../cadastro');
     }
-    elseif ($senha1 != $senha2) {
-        $_SESSION['msgerro'] = 'Senhas não conferem';
-        $_SESSION['icon'] = 'error';
-        header('Location: ../cadastro');
-    }
     elseif (!empty($fetch)) {
         $_SESSION['msgerro'] = 'Usuário ou Email já Cadastrado.';
         $_SESSION['icon'] = 'error';
@@ -45,7 +40,7 @@ if (isset($_POST['btnCadastrar'])) {
     }
     elseif ($mensagemErro === '') {
         $imagem->gravarFoto($foto);
-        $crud->insertDB('usuarios', '?,?,?,?,?', array($usuario1, $email, $data_cadastro, $hash->passwordHash($senha2), $imagem->gerarNome($foto)), 'usuario, email, data_cadastro, senha, imagem');
+        $crud->insertDB('usuarios', '?,?,?,?,?', array($usuario1, $email, $data_cadastro, $hash->passwordHash($senha1), $imagem->gerarNome($foto)), 'usuario, email, data_cadastro, senha, imagem');
         $_SESSION['msgerro'] = 'Usuário Cadastrado com Sucesso.';
         $_SESSION['icon'] = 'success';
         header('Location: ../login');

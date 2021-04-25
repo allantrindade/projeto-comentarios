@@ -3,20 +3,26 @@
                 <h1 class="h3 mt-3 mb-3 font-weight-normal">Cadastro de Usuário</h1>
                 <p>Seja bem-vindo!</p>
                 <div class="form-group">
-                    <input type="usuario" name="usuario1" class="form-control" title="Usuário" placeholder="Usuário">
+                    <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-user fa-fw fa-lg" aria-hidden="true"></i></span>
+                        <input type="usuario" name="usuario1" class="form-control" title="Usuário" placeholder="Usuário">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="email" class="form-control" title="Email" placeholder="Email">
+                    <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-envelope fa-fw fa-lg" aria-hidden="true"></i></span>
+                        <input type="text" name="email" class="form-control" title="Email" placeholder="Email">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="senha1" class="form-control" title="Senha" placeholder="Senha">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="senha2" class="form-control" title="Confirmar Senha" placeholder="Confirmar Senha">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-key fa-fw fa-lg"></i></span>
+                        <input type="password" name="senha1" class="form-control" title="Senha" placeholder="Senha">
+                    </div>
                 </div>
                 <div class="form-group">
                     <input class="form-control-file" type="file" title="Foto" name="foto" accept=".jpg, .png, .gif, .bmp, .jpeg">
-                </div> 
+                </div>   
                 <div class="form-group">
                     <button name="btnCadastrar" class="btn btn-dark btn-block" title="Cadastrar" type="submit">Cadastrar</button>
                     <a name="btnVoltar" class="btn btn-outline-dark btn-block" title="Voltar" href="{{root}}/login">Voltar</a>
@@ -24,4 +30,3 @@
             </form>
         </div>        
     </div>
-</body>
