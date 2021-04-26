@@ -1,8 +1,6 @@
 <?php 
-include 'Classes/classUrl.php';
-include 'Classes/classTemplate.php';
-include 'Classes/classPages.php';
-include 'Includes/variaveis.php';
+require 'autoload.php';
+require 'Includes/variaveis.php';
 
 
 $objPages = new classPages();

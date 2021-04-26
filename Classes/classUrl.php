@@ -3,6 +3,7 @@
     /**
      * classUrl
      * Classe responsável criar a URL amigável.
+     * 
      */
     class classUrl {
                 

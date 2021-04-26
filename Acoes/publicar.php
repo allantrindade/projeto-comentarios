@@ -1,6 +1,6 @@
 <?php
-include('../Includes/variaveis.php');
-include('../Classes/classCrud.php');
+require '../autoload.php';
+require '../Includes/variaveis.php';
 
 //Evento do botão "Publicar" Pagina Home (Ação:Publicar)
 if (isset($_POST['btnPublicar']) && $_POST['acao'] == 'Publicar') {

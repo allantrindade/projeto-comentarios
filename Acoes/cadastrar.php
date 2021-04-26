@@ -1,16 +1,10 @@
 <?php
-include('../Includes/variaveis.php');
-include('../Classes/classCrud.php');
-include('../Classes/classUsuario.php');
-include('../Classes/classPassword.php');
-include('../Classes/classImagem.php');
-
-$crud = new classCrud();
-$hash = new classPassword();
-$imagem = new classImagem();
+require '../autoload.php';
+require '../Includes/variaveis.php';
 
 if (isset($_POST['btnCadastrar'])) {  
     //Verifica se já tem algum usuário ou email cadastrados iguais
+    $crud = new classCrud();
     $query = $crud->selectDB('*', 'usuarios', "WHERE usuario ='{$usuario1}' OR email ='{$email}'", array());
     $fetch = $query->fetch(PDO::FETCH_OBJ);
     if ($usuario1 == '' || $senha1 == '' || $email == '') {
@@ -39,6 +33,9 @@ if (isset($_POST['btnCadastrar'])) {
         header('Location: ../cadastro');
     }
     elseif ($mensagemErro === '') {
+        $crud = new classCrud();
+        $hash = new classPassword();
+        $imagem = new classImagem();
         $imagem->gravarFoto($foto);
         $crud->insertDB('usuarios', '?,?,?,?,?', array($usuario1, $email, $data_cadastro, $hash->passwordHash($senha1), $imagem->gerarNome($foto)), 'usuario, email, data_cadastro, senha, imagem');
         $_SESSION['msgerro'] = 'Usuário Cadastrado com Sucesso.';

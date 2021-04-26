@@ -1,12 +1,12 @@
 <?php
-include_once(dirname(__FILE__).'\classConexao.php');
-    
+require 'classConexao.php';
+
     /**
      * classCrud
      * Classe responsável por executar as operações de CRUD (Create, Read, Update, Delete).
      * 
      */
-    class classCrud extends classConexao {
+    class classCrud  extends classConexao {
 
         //ATRIBUTOS
         private $crud;

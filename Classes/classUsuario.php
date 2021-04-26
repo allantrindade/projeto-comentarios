@@ -1,6 +1,6 @@
 <?php
-include_once(dirname(__FILE__).'\classConexao.php');
-    
+require 'classConexao.php';
+
     /**
      * classUsuario
      * Classe responsável por criar a interação do usuario ao sistema.

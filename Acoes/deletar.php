@@ -1,8 +1,6 @@
 <?php
-
-include('../Classes/classCrud.php');
-include('../Includes/variaveis.php');
-
+require '../autoload.php';
+require '../Includes/variaveis.php';
 
 if (($id == '')) {
     $_SESSION['msgerro'] = 'Preencher o campo id para excluir!';

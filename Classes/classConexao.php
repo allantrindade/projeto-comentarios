@@ -3,6 +3,7 @@
     /**
      * classConexao
      * Classe responsável por estabelecer a conexão com o Banco de Dados.
+     * 
      */
     class classConexao {
         //ATRIBUTOS

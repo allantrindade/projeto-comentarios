@@ -1,7 +1,6 @@
 <?php
-    include('../Includes/variaveis.php');
-    include('../Classes/classUsuario.php');
-    include('../Classes/classPassword.php');
+require '../autoload.php';
+require '../Includes/variaveis.php';
     
     if (isset($_POST['btnLogar'])){
         if ($usuario == '' || $senha == '') {

@@ -3,6 +3,7 @@
     /**
      * classImagem
      * Classe responsável por realizar as operaçoes de gravação e upload de imagens.
+     * 
      */
     class classImagem  {
                   

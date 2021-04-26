@@ -1,7 +1,7 @@
+<?php
+require '../autoload.php';
+require '../Includes/variaveis.php';
 
-    <?php
-    include('../Includes/variaveis.php');
-    include('../Classes/classUsuario.php');
     $user = new classUsuario();
 
     if ($user->logout()) {
