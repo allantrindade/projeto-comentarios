@@ -1,5 +1,10 @@
 <?php
-    class Template
+    
+    /**
+     * classTemplate
+     * Classe responsável por criar os metódos para capturar as tags "{{ }}" na página HTML.
+     */
+    class classTemplate
     {
         protected $page;
         protected $tags = [];

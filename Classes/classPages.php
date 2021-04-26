@@ -1,5 +1,6 @@
 <?php
-    
+include_once(dirname(__FILE__).'\classCrud.php');
+
     /**
      * classPages
      * Classe responsável por executar as funções em PHP e retornar o HTML para o Index.
