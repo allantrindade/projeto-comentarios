@@ -1,13 +1,11 @@
 <?php
 
-use Classes\classPages;
-use Classes\classUrl;
-use Classes\classTemplate;
+use Models\Classes\classPages;
+use Models\Classes\classUrl;
+use Models\Classes\classTemplate;
 
 require_once 'vendor/autoload.php';
 require_once 'Includes/variaveis.php';
-
-
 
 $objPages = new classPages;
 $objUrl = new classUrl;

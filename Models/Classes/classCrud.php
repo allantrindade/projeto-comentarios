@@ -1,8 +1,8 @@
 <?php
 
-namespace Classes;
+namespace Models\Classes;
 
-use Classes\classConexao;
+use Models\Classes\classConexao;
 
     /**
      * classCrud

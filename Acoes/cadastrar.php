@@ -1,8 +1,8 @@
 <?php
 
-use Classes\classCrud;
-use Classes\classImagem;
-use Classes\classPassword;
+use Models\Classes\classCrud;
+use Models\Classes\classImagem;
+use Models\Classes\classPassword;
 
 require_once '../vendor/autoload.php';
 require_once '../Includes/variaveis.php';

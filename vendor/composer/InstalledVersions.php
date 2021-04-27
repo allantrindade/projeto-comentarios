@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'c5371bfc5fe95581d1de4c5609dbd46dd60ee5d2',
+    'reference' => 'd407db2119b03c86719a6d0d45fa9acded8aa419',
     'name' => 'php/comentarios',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'c5371bfc5fe95581d1de4c5609dbd46dd60ee5d2',
+      'reference' => 'd407db2119b03c86719a6d0d45fa9acded8aa419',
     ),
   ),
 );

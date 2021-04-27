@@ -1,6 +1,6 @@
 <?php
 
-use Classes\classUsuario;
+use Models\Classes\classUsuario;
 
 require_once '../vendor/autoload.php';
 require_once '../Includes/variaveis.php';

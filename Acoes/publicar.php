@@ -1,6 +1,6 @@
 <?php
 
-use Classes\classCrud;
+use Models\Classes\classCrud;
 
 require_once '../vendor/autoload.php';
 require_once '../Includes/variaveis.php';
