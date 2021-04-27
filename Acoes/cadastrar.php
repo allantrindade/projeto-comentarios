@@ -5,7 +5,7 @@ use Models\Classes\classImagem;
 use Models\Classes\classPassword;
 
 require_once '../vendor/autoload.php';
-require_once '../Includes/variaveis.php';
+require_once '../Config/variaveis.php';
 
 if (isset($_POST['btnCadastrar'])) {  
     //Verifica se já tem algum usuário ou email cadastrados iguais

@@ -3,7 +3,7 @@
 use Models\Classes\classCrud;
 
 require_once '../vendor/autoload.php';
-require_once '../Includes/variaveis.php';
+require_once '../Config/variaveis.php';
 
 //Evento do botão "Publicar" Pagina Home (Ação:Publicar)
 if (isset($_POST['btnPublicar']) && $_POST['acao'] == 'Publicar') {
