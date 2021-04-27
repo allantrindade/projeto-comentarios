@@ -1,6 +1,6 @@
 <?php
 require '../autoload.php';
-require '../Includes/variaveis.php';
+require '../Config/variaveis.php';
 
 if (($id == '')) {
     $_SESSION['msgerro'] = 'Preencher o campo id para excluir!';

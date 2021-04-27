@@ -1,6 +1,6 @@
 <?php
 require '../autoload.php';
-require '../Includes/variaveis.php';
+require '../Config/variaveis.php';
     
     if (isset($_POST['btnLogar'])){
         if ($usuario == '' || $senha == '') {

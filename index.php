@@ -1,13 +1,13 @@
 <?php 
 require 'autoload.php';
-require 'Includes/variaveis.php';
+require 'Config/variaveis.php';
 
 
 $objPages = new classPages();
 $objUrl = new classUrl();
 
 //Template Header HTML
-$header = new classTemplate("includes/header.html");
+$header = new classTemplate("pages/header.html");
 $header->set("usuariologado", $usuarioLogado);
 $header->set("root", $root);
 echo $header->render();
@@ -54,7 +54,7 @@ switch ($objUrl->getURL($url)) {
 }
 
 //Template FOOTER HTML
-$template = new classTemplate("includes/footer.html");
+$template = new classTemplate("pages/footer.html");
 echo $template->render();
 
 

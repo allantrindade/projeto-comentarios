@@ -1,6 +1,6 @@
 <?php
 require '../autoload.php';
-require '../Includes/variaveis.php';
+require '../Config/variaveis.php';
 
 //Evento do botão "Publicar" Pagina Home (Ação:Publicar)
 if (isset($_POST['btnPublicar']) && $_POST['acao'] == 'Publicar') {
