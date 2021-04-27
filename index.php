@@ -1,11 +1,16 @@
-<?php 
-require 'autoload.php';
-require 'Includes/variaveis.php';
+<?php
+
+use Classes\classPages;
+use Classes\classUrl;
+use Classes\classTemplate;
+
+require_once 'vendor/autoload.php';
+require_once 'Includes/variaveis.php';
 
 
-$objPages = new classPages();
-$objUrl = new classUrl();
 
+$objPages = new classPages;
+$objUrl = new classUrl;
 //Template Header HTML
 $header = new classTemplate("includes/header.html");
 $header->set("usuariologado", $usuarioLogado);

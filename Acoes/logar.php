@@ -1,6 +1,9 @@
 <?php
-require '../autoload.php';
-require '../Includes/variaveis.php';
+
+use Classes\classUsuario;
+
+require_once '../vendor/autoload.php';
+require_once '../Includes/variaveis.php';
     
     if (isset($_POST['btnLogar'])){
         if ($usuario == '' || $senha == '') {
@@ -9,7 +12,7 @@ require '../Includes/variaveis.php';
             header('Location: ../login');
         }
         elseif ($mensagemErro === '') {
-            $u = new classUsuario();
+            $u = new classUsuario;
             if($u->login($usuario, $senha) == TRUE) {
                 header("Location: ../home");
             } else {

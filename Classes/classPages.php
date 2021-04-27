@@ -1,5 +1,10 @@
 <?php
 
+namespace Classes;
+
+use PDO;
+use stdClass;
+
     /**
      * classPages
      * Classe responsável por executar as funções em PHP e retornar o HTML para o Index.
@@ -38,7 +43,7 @@
          * @return string $cont = Retorna a quantidade de comentários.
          */
         public function getContComentarios(): string {
-            $crud = new classCrud();
+            $crud = new classCrud;
             $cont = $crud->selectDB('COUNT(*)', 'comentarios', '', array())->fetchColumn();
             return $cont;
         }
@@ -49,7 +54,7 @@
          * @return string $cont = Retorna a quantidade de usuários cadastrados.
          */
         public function getContUsuarios(): string {
-            $crud = new classCrud();
+            $crud = new classCrud;
             $cont = $crud->selectDB('COUNT(*)', 'usuarios', '', array())->fetchColumn();
             return $cont;
         }       
@@ -63,14 +68,14 @@
          */
         public function getComentarios($session): string {
             $html = '';
-            $crud = new classCrud();
+            $crud = new classCrud;
             $result = $crud->selectDB('*', 'comentarios', 'ORDER BY id DESC', array());
             while ($fetch = $result->fetch(PDO::FETCH_OBJ)) {
                 $data_criacao = date('d/m/Y H:i', $fetch->data_criacao);
                 $data_edicao = $fetch->data_edicao != "" ? 'Editado: ' . date('d/m/Y H:i', $fetch->data_edicao) : "";
                 $usuario = $crud->selectDB('imagem', 'usuarios', "WHERE usuario ='{$fetch->usuario}'", array())->fetch(PDO::FETCH_OBJ);
                 if (empty($usuario->imagem)){
-                    $usuario = new \stdClass();
+                    $usuario = new stdClass;
                     $usuario->imagem = 'anonimo.jpg';
                 }
                 $html .= "
@@ -107,7 +112,7 @@
          */
         public function getUsuarios(): string {
             $html = '';
-            $crud = new classCrud();
+            $crud = new classCrud;
             $result = $crud->selectDB('id, usuario, email, data_cadastro', 'usuarios', 'ORDER BY id ASC', array());
             while ($fetch = $result->fetch(PDO::FETCH_OBJ)) {  
                 $data_cadastro = date('d/m/Y', $fetch->data_cadastro);                   

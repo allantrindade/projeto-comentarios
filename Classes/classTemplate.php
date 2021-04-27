@@ -1,5 +1,7 @@
 <?php
-    
+
+namespace Classes;
+
     /**
      * classTemplate
      * Classe responsável por criar os metódos para capturar as tags "{{ }}" na página HTML.

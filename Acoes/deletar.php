@@ -1,6 +1,9 @@
 <?php
-require '../autoload.php';
-require '../Includes/variaveis.php';
+
+use Classes\classCrud;
+
+require_once '../vendor/autoload.php';
+require_once '../Includes/variaveis.php';
 
 if (($id == '')) {
     $_SESSION['msgerro'] = 'Preencher o campo id para excluir!';
@@ -13,7 +16,7 @@ elseif ($usuarioLogado != $userGet && $userGet != 'anônimo') {
     header('Location: ../home');
 }
 elseif ($mensagemErro === '') {
-    $crud = new classCrud();
+    $crud = new classCrud;
     $crud->deleteDB('comentarios', '?', array($id));
     $_SESSION['msgerro'] = 'Comentário Excluído.';
     $_SESSION['icon'] = 'success';

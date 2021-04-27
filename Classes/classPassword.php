@@ -1,5 +1,7 @@
 <?php
-    
+
+namespace Classes;  
+
     /**
      * classPassword
      * Classe responsável por criar os métodos de password_hash.

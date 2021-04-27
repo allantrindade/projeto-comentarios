@@ -1,6 +1,9 @@
 <?php
-require '../autoload.php';
-require '../Includes/variaveis.php';
+
+use Classes\classCrud;
+
+require_once '../vendor/autoload.php';
+require_once '../Includes/variaveis.php';
 
 //Evento do botão "Publicar" Pagina Home (Ação:Publicar)
 if (isset($_POST['btnPublicar']) && $_POST['acao'] == 'Publicar') {
@@ -10,7 +13,7 @@ if (isset($_POST['btnPublicar']) && $_POST['acao'] == 'Publicar') {
         header('Location: ../home');
     } 
     elseif ($mensagemErro === ""){
-        $crud = new classCrud();
+        $crud = new classCrud;
         $crud->insertDB('comentarios', '?,?,?,?', array(isset($_POST['anonimo']) ? 'anônimo' : $usuarioLogado,
         isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario), 'usuario, email, data_criacao, comentario');
         $_SESSION['msgerro'] = 'Comentário Inserido';
@@ -26,7 +29,7 @@ if (isset($_POST['btnPublicar']) && $_POST['acao'] == 'Editar') {
         header('Location: ../home');
     } 
     elseif ($mensagemErro === ""){
-        $crud = new classCrud();
+        $crud = new classCrud;
         $crud->updateDB('comentarios', 'usuario = ?, email = ?, data_edicao = ?, comentario = ?',
         $_POST['idGet'], array(isset($_POST['anonimo']) ? 'anônimo' : $usuarioLogado, isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario)); 
         $_SESSION['msgerro'] = 'Comentário Editado';

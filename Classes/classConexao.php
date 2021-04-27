@@ -1,5 +1,9 @@
 <?php
-    
+
+namespace Classes;
+
+use PDO;
+use PDOException;    
     /**
      * classConexao
      * Classe responsável por estabelecer a conexão com o Banco de Dados.
@@ -26,7 +30,7 @@
         /**
          * conectDB
          * Método responsável por conectar com o Banco de Dados.
-         * @return bool Retorna TRUE se realizar a conexão. 
+         * @return object Retorna TRUE se realizar a conexão. 
          */
         public function conectDB() {
             try {

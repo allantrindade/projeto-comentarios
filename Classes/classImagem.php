@@ -1,5 +1,7 @@
 <?php
-    
+
+namespace Classes;
+
     /**
      * classImagem
      * Classe responsável por realizar as operaçoes de gravação e upload de imagens.

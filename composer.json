@@ -1,0 +1,17 @@
+{
+	"name": "php/comentarios",
+	"description": "Projeto Comentarios",
+	"authors": [
+		{
+			"name": "Allan de Abreu Trindade",
+			"email": "allan-10@live.com",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+        "psr-4": {
+            "Classes\\": "Classes/"
+        }
+    },
+	"require": { }
+}

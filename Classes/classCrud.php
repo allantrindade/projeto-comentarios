@@ -1,5 +1,8 @@
 <?php
-require 'classConexao.php';
+
+namespace Classes;
+
+use Classes\classConexao;
 
     /**
      * classCrud
@@ -71,7 +74,7 @@ require 'classConexao.php';
          * @param  string $tabela          = Nome da tabela.
          * @param  string $condicao        = Condição da query a ser executada.
          * @param  array  $parametros      = Parâmetros que seráo preparados no bindValue, pode ser vazio.
-         * @return string                  = Retorna a string com a query executada.
+         * @return object                  = Retorna um objeto com a query executada.
          */
         public function selectDB($atributos, $tabela, $condicao, $parametros){
             $query = "SELECT {$atributos} FROM {$tabela} {$condicao}";

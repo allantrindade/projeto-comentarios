@@ -1,5 +1,8 @@
 <?php
-require 'classConexao.php';
+
+namespace Classes;
+
+use Classes\classConexao;
 
     /**
      * classUsuario
@@ -15,7 +18,7 @@ require 'classConexao.php';
          * @return bool                 = Se logado com sucesso retorna TRUE senão FALSE
          */
         public function login($usuario, $senha){
-            $h = new classPassword();
+            $h = new classPassword;
             $query = "SELECT * FROM usuarios WHERE usuario = :usuario";
             $stmt = $this->conectDB()->prepare($query);
             $stmt->bindValue("usuario", $usuario);

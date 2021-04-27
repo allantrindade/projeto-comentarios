@@ -1,5 +1,7 @@
 <?php
-    
+
+namespace Classes;
+
     /**
      * classUrl
      * Classe responsável criar a URL amigável.
