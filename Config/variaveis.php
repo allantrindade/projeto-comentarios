@@ -2,19 +2,19 @@
 //Inicializa a sessão do Usuário
 session_start();
 
-// //Conexão do Banco de Dados AWS
-// CONST SERVER = "mysqldb.c9jvbdikymy4.us-east-1.rds.amazonaws.com";
-// CONST PORT = "3306";
-// CONST USER = "admin";
-// CONST PASSWORD = "75782366";
-// CONST DATABASE = "bdcomentarios";
-
-//Conexão do Banco de Dados LOCAL
-CONST SERVER = "localhost";
+//Conexão do Banco de Dados AWS
+CONST SERVER = "mysqldb.c9jvbdikymy4.us-east-1.rds.amazonaws.com";
 CONST PORT = "3306";
-CONST USER = "root";
-CONST PASSWORD = "";
+CONST USER = "admin";
+CONST PASSWORD = "75782366";
 CONST DATABASE = "bdcomentarios";
+
+// //Conexão do Banco de Dados LOCAL
+// CONST SERVER = "localhost";
+// CONST PORT = "3306";
+// CONST USER = "root";
+// CONST PASSWORD = "";
+// CONST DATABASE = "bdcomentarios";
 
 //Número de Comentários por Páginas
 CONST COMENTS = 3;
@@ -41,7 +41,7 @@ $url = explode("/", isset($_GET['url']) ? $_GET['url'] : 'home');
 $acao = isset($url[1]) ? "Editar" : "Publicar";
 
 //Variaveis do GET
-$idGet = isset($url[2]) ? end($url): "" ;
+$idGet = isset($url[2]) ? $url[2]: "" ;
 $id = isset($_GET['id']) ? $_GET['id'] : "" ;
 $userGet = isset($_GET['user']) ? $_GET['user'] : "" ;
 $GLOBALS['pagina'] = isset($url[1]) ? ($url[1] == 0 ? "1" : $url[1]) : "1";
