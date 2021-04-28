@@ -41,7 +41,7 @@ $url = explode("/", isset($_GET['url']) ? $_GET['url'] : 'home');
 $acao = isset($url[1]) ? "Editar" : "Publicar";
 
 //Variaveis do GET
-$idGet = isset($url[2]) ? end($url): "" ;
+$idGet = isset($url[2]) ? $url[2]: "" ;
 $id = isset($_GET['id']) ? $_GET['id'] : "" ;
 $userGet = isset($_GET['user']) ? $_GET['user'] : "" ;
 $GLOBALS['pagina'] = isset($url[1]) ? ($url[1] == 0 ? "1" : $url[1]) : "1";
