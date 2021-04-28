@@ -14,7 +14,10 @@ CONST SERVER = "localhost";
 CONST PORT = "3306";
 CONST USER = "root";
 CONST PASSWORD = "";
-CONST DATABASE = "bdcomentarios"; 
+CONST DATABASE = "bdcomentarios";
+
+//Número de Comentários por Páginas
+CONST COMENTS = 3;
 
 //Inputs Page Cadastro
 $usuario1 = isset($_POST['usuario1']) ? addslashes($_POST['usuario1']) : '';
@@ -38,9 +41,10 @@ $url = explode("/", isset($_GET['url']) ? $_GET['url'] : 'home');
 $acao = isset($url[1]) ? "Editar" : "Publicar";
 
 //Variaveis do GET
-$idGet = isset($url[1]) ? end($url): "" ;
+$idGet = isset($url[2]) ? end($url): "" ;
 $id = isset($_GET['id']) ? $_GET['id'] : "" ;
 $userGet = isset($_GET['user']) ? $_GET['user'] : "" ;
+$GLOBALS['pagina'] = isset($url[1]) ? ($url[1] == 0 ? "1" : $url[1]) : "1";
 
 //Mensagem de Erros
 $mensagemErro = isset($_SESSION['msgerro']) ? $_SESSION['msgerro'] : "";

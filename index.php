@@ -23,6 +23,7 @@ switch ($objUrl->getURL($url)) {
         $template->set("openClass", $objPages->openClass($usuarioLogado));
         $template->set("closeClass", $objPages->closeClass($usuarioLogado));
         $template->set("comentarios", $objPages->getComentarios($usuarioLogado));
+        $template->set("paginacao", $objPages->getPaginacao());
         $template->set("root", $root);
         $template->set("cont", $objPages->getContComentarios());
         echo $template->render();
