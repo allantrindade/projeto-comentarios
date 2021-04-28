@@ -38,7 +38,7 @@ $data = strtotime(date('Y/m/d H:i:s'));
 $usuarioLogado = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : 'anônimo';
 $emailLogado = isset($_SESSION['email']) ? $_SESSION['email'] : 'anônimo';
 $url = explode("/", isset($_GET['url']) ? $_GET['url'] : 'home');
-$acao = isset($url[1]) ? "Editar" : "Publicar";
+$acao = isset($url[2]) && $url[1] == 'editar' ? "Editar" : "Publicar";
 
 //Variaveis do GET
 $idGet = isset($url[2]) ? $url[2]: "" ;
